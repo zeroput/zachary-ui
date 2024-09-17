@@ -1,10 +1,13 @@
 {
   "name": "zachary-ui",
   "version": "1.0.0",
-  "description": "the best ui diy",
-  "main": "index.js",
+  "description": "the best ui by zachary diy",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c  --bundleConfigAsCjs"
   },
   "author": "zachary",
   "license": "ISC",
@@ -21,6 +24,7 @@
     "@rollup/plugin-typescript": "^11.1.6",
     "rollup": "^4.21.3",
     "rollup-plugin-dts": "^6.1.1",
-    "rollup-plugin-peer-deps-external": "^2.2.4"
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "tslib": "^2.7.0"
   }
 }
