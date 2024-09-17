@@ -8,8 +8,9 @@ function Button({ title, onClick, variant, color, size = "medium", sizeNum }: Bu
     style = {
       ...style,
       backgroundColor: "grey",
-      color: "yellow",
-      border: "1px solid white"
+      color: "green",
+      border: "1px solid white",
+      size: size
     }
   }
   if (variant === "contained") {
@@ -19,28 +20,22 @@ function Button({ title, onClick, variant, color, size = "medium", sizeNum }: Bu
       color: "white"
     }
   }
-  // add the size prop
-  if (size) {
-    style = {
-      ...style,
-      size
-    }
-  }
   if (sizeNum === "A1") {
     style = {
       ...style,
-      size: "big"
+      borderRadius: "8px"
     }
   }
   if (sizeNum === "A2") {
     style = {
       ...style,
-      size: "medium"
+      borderRadius: "18px"
     }
   }
   return (
     <button
       style={style}
+      onClick={onClick}
     >
       {title}
     </button>
