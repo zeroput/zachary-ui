@@ -7,7 +7,8 @@ function Button({ title, onClick, variant, color, size = "medium", sizeNum }: Bu
   if (variant === "outlined") {
     style = {
       ...style,
-      backgroundColor: "black",
+      backgroundColor: "grey",
+      color: "yellow",
       border: "1px solid white"
     }
   }
@@ -51,7 +52,7 @@ export default Button;
 
 export interface ButtonProps {
   title: string;
-  onClick?: () => void;
+  onClick: () => void;
   variant: "contained" | "outlined";
   color?: "red" | "black";
   size?: "small" | "medium" | "large";
