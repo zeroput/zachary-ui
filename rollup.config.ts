@@ -4,7 +4,7 @@ import typescript from "@rollup/plugin-typescript";
 import { dts } from "rollup-plugin-dts";
 import terser from "@rollup/plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
-// import postcss from "rollup-plugin-postcss";
+import postcss from "rollup-plugin-postcss";
 import packageJson from "./package.json";
 
 export default [
@@ -28,7 +28,7 @@ export default [
       commonjs(), // for converting CommonJS modules to ES6
       typescript({ tsconfig: "./tsconfig.json" }), // for converting TypeScript to JavaScript
       terser(), // for minifying the output
-      // postcss(), // for processing CSS files, add later
+      postcss(), // for processing CSS files, add later
     ],
     external: ["react", "react-dom"], // for excluding dependencies
   },
@@ -36,6 +36,6 @@ export default [
     input: "src/index.ts",
     output: [{ file: "dist/index.d.ts", format: "es" }],
     plugins: [dts()],
-    // external: [/\.css$/], 
+    external: [/\.css$/], 
   }, // for generating type definitions
 ];

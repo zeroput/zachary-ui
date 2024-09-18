@@ -1,40 +1,15 @@
-
-
 function Button({ title, onClick, variant, color, size = "medium", sizeNum }: ButtonProps) {
-  let style: any = {
-    padding: "5px 10px"
+  let clsName = "py-2 px-5 cursor-pointer";
+
+  if (variant === "contained"){
+    clsName += " border border-solid border-black bg-white text-black "
   }
-  if (variant === "outlined") {
-    style = {
-      ...style,
-      backgroundColor: "grey",
-      color: "green",
-      border: "1px solid white",
-      size: size
-    }
-  }
-  if (variant === "contained") {
-    style = {
-      ...style,
-      backgroundColor: "black",
-      color: "white"
-    }
-  }
-  if (sizeNum === "A1") {
-    style = {
-      ...style,
-      borderRadius: "8px"
-    }
-  }
-  if (sizeNum === "A2") {
-    style = {
-      ...style,
-      borderRadius: "18px"
-    }
+  if (variant === "outlined"){
+    clsName += " bg-black text-white"
   }
   return (
     <button
-      style={style}
+      className={clsName}
       onClick={onClick}
     >
       {title}
