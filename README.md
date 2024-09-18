@@ -120,3 +120,9 @@ PUBLISH CMD
 ```
 npm publish --access public
 ```
+
+
+## add storybook
+```
+npx storybook@8.2.9 init
+```
