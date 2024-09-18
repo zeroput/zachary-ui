@@ -1,41 +1,61 @@
+import classNames from "classnames";
 import React from "react";
-function InputField({
+import ThemeProvider from "../theme-provider";
+
+function Input({
   value,
   onChange,
-  placeholder,
+  name = "",
+  placeholder = "",
+  label = "",
+  disabled = false,
   type = "text",
-  disabled,
-  error,
-  name,
   size = "medium",
-  border = "rounded",
-}: InputFieldProps) {
+  rounded = "none",
+  error = "",
+}: InputProps) {
   return (
-    <div>
-      <label>{name}</label>
-      <input
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        type={type}
-        disabled={disabled}
-        name={name}
-      />
-    </div>
-
+    <ThemeProvider>
+      <div className="flex flex-col w-max gap-1">
+        <label htmlFor="input" className="text-sm">{label}</label>
+        <input
+          type={type}
+          name={name}
+          value={value}
+          placeholder={placeholder}
+          onChange={(e) => onChange(e.target.value)}
+          disabled={disabled}
+          className={classNames("px-5 border-solid", {
+            "h-10": size === "medium",
+            "h-8": size === "small",
+            "h-12": size === "large",
+            "rounded-none": rounded === "none",
+            "rounded-sm": rounded === "small",
+            "rounded-md": rounded === "medium",
+            "rounded-lg": rounded === "large",
+            "rounded-full": rounded === "full",
+            'border-primary focus:outline-none' : !disabled,
+            "border border-red-500 border-solid": error,
+            "cursor-not-allowed pointer-events-none bg-opacity-50": disabled,
+          })}
+        />
+        {error && <span className="text-red-500">{error}</span>}
+      </div>
+    </ThemeProvider>
   );
 }
 
-export default InputField;
+export default Input;
 
-export interface InputFieldProps {
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  placeholder?: string;
-  type?: "text" | "password" | "number";
-  disabled?: boolean;
-  error?: boolean;
+export interface InputProps {
+  value: string | number;
+  onChange: (value: string | number) => void;
   name?: string;
+  placeholder?: string;
+  label?: string;
+  disabled?: boolean;
+  type?: "text" | "number" | "password";
   size?: "small" | "medium" | "large";
-  border?: "rounded" | "none";
+  rounded?: "none" | "small" | "medium" | "large" | "full";
+  error?: string;
 }

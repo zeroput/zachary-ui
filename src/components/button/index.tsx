@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-function Button({ title, onClick, variant = "contained", color, size = "medium", disabled, rounded = "none", iconNode, iconPos="right"}: ButtonProps) {
+function Button({ title, onClick, variant = "contained", color, size = "medium", disabled, rounded = "none", iconNode, iconPos="right", loading=false}: ButtonProps) {
   return (
     <button
       className={classNames('py-2 px-5 cursor-pointer', {
@@ -25,6 +25,18 @@ function Button({ title, onClick, variant = "contained", color, size = "medium",
     >
       {iconNode && iconNode}
       {title}
+      {loading && (
+          <div
+            className={classNames(
+              "w-2 h-2 border-[2px] border-solid border-t-transparent animate-spin rounded-full",
+              {
+                "border-white": variant === "contained",
+                "border-primary": variant === "outlined",
+              }
+            )}
+          ></div>
+        )
+      }
     </button>
 
   );
@@ -36,11 +48,13 @@ export interface ButtonProps {
   title: string;
   onClick: () => void;
   variant: "contained" | "outlined";
-  color?: "red" | "black";
+  color?: "blue" | "black";
   size?: "small" | "medium" | "large";
   sizeNum?: "A1" | "A2" | "A3";
   disabled?: boolean;
   rounded?: "none" | "small" | "medium" | "large" | "full",
   iconNode?: React.ReactNode,
-  iconPos?: "left" | "right"
+  iconPos?: "left" | "right",
+  loading?: boolean;
+
 }
