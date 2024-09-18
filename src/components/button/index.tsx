@@ -1,17 +1,29 @@
-function Button({ title, onClick, variant, color, size = "medium", sizeNum }: ButtonProps) {
-  let clsName = "py-2 px-5 cursor-pointer";
+import classNames from "classnames";
 
-  if (variant === "contained"){
-    clsName += " border border-solid border-black bg-white text-black "
-  }
-  if (variant === "outlined"){
-    clsName += " bg-black text-white"
-  }
+function Button({ title, onClick, variant = "contained", color, size = "medium", disabled, rounded = "none", iconNode, iconPos="right"}: ButtonProps) {
   return (
     <button
-      className={clsName}
+      className={classNames('py-2 px-5 cursor-pointer', {
+        "border border-solid border-primary bg-white text-primary":
+        variant === "outlined",
+      "bg-primary text-white border-none": variant === "contained" && !disabled,
+      "pointer-events-none bg-gray-300 border-none cursor-not-allowed text-gray-500":
+        disabled,
+      "h-8": size === "small",
+      "h-10": size === "medium",
+      "h-12": size === "large",
+      "rounded-none": rounded === "none",
+      "rounded-sm": rounded === "small",
+      "rounded-md": rounded === "medium",
+      "rounded-lg": rounded === "large",
+      "rounded-full": rounded === "full",
+      " pointer-events-none bg-grey border-none cursor-not-allowed ": disabled,
+      "flex gap-5 items-center" : iconNode,
+      "flex-row-reverse": iconNode && iconPos === "right"
+      })}
       onClick={onClick}
     >
+      {iconNode && iconNode}
       {title}
     </button>
 
@@ -26,5 +38,9 @@ export interface ButtonProps {
   variant: "contained" | "outlined";
   color?: "red" | "black";
   size?: "small" | "medium" | "large";
-  sizeNum?: "A1" | "A2" | "A3"
+  sizeNum?: "A1" | "A2" | "A3";
+  disabled?: boolean;
+  rounded?: "none" | "small" | "medium" | "large" | "full",
+  iconNode?: React.ReactNode,
+  iconPos?: "left" | "right"
 }
