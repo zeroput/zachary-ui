@@ -44,5 +44,8 @@ npm run storybook
 ```
 visit `http://localhost:6006/`
 
+You can also find my package on npm, 
+`https://www.npmjs.com/package/zachary-ui`.
+
 ## Enjoy it
 
