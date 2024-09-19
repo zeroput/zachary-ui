@@ -1,8 +1,10 @@
 import classNames from "classnames";
+import ThemeProvider from "../theme-provider";
 
 function Button({ title, onClick, variant = "contained", color, size = "medium", disabled, rounded = "none", iconNode, iconPos="right", loading=false}: ButtonProps) {
   return (
-    <button
+    <ThemeProvider>
+      <button
       className={classNames('py-2 px-5 cursor-pointer', {
         "border border-solid border-primary bg-white text-primary":
         variant === "outlined",
@@ -38,6 +40,7 @@ function Button({ title, onClick, variant = "contained", color, size = "medium",
         )
       }
     </button>
+    </ThemeProvider>
 
   );
 }
