@@ -55,6 +55,7 @@ export const VerticalOptions = {
     label: "Select country",
     options,
     orientation: "vertical",
+    size: "medium"
   },
   render: Template,
 } as { args: RadioProps };
@@ -67,3 +68,33 @@ export const Disabled = {
   },
   render: Template,
 } as { args: RadioProps };
+
+export const LargeSize = {
+  args: {
+    label: "Select country",
+
+    options: [{
+      "label": "Singapore",
+      "value": "singapore"
+    }, {
+      "label": "India",
+      "value": "india"
+    }, {
+      "label": "USA",
+      "value": "usa"
+    }, {
+      "label": "UK",
+      "value": "uk"
+    }, {
+      "label": "Canada",
+      "value": "canada"
+    }],
+
+    disabled: false,
+    size: "large"
+  },
+
+  render: Template
+} as {
+  args: RadioProps;
+};

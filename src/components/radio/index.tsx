@@ -38,8 +38,11 @@ function Radio({
               )}
             ></div>
             <span
-              className={classNames("text-sm mt-[2px]", {
+              className={classNames("mt-[2px]", {
                 "text-gray-500": disabled,
+                "text-sm": size === "small",
+                "text-base": size === "medium",
+                "text-xl": size === "large",
               })}
             >
               {option.label}

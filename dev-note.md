@@ -1,6 +1,12 @@
 
 # init the project folder tree
 
+set the git config
+```
+git config user.name "zeroput"
+git config user.email "zachary_paris@outlook.com"
+```
+
 ```
 npm i react typescript @types/react ts-lib --save-dev
 ```
