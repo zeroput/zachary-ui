@@ -20,6 +20,10 @@ export const Basic = {
     placeholder: "Select a country",
     options: [
       {
+        label: "Singapore",
+        value: "singapore",
+      },
+      {
         label: "India",
         value: "india",
       },
@@ -45,6 +49,18 @@ export const Advanced = {
   args: {
     placeholder: "Select a country",
     options: [
+      {   
+        label: "China",
+        value: "china",
+        image:
+            "https://www.countryflags.com/wp-content/uploads/china-flag-png-large.png",
+      },
+      {   
+        label: "Singapore",
+        value: "singapore",
+        image:
+            "https://www.countryflags.com/wp-content/uploads/singapore-flag-png-large.png",
+      },
       {
         label: "India",
         value: "india",
