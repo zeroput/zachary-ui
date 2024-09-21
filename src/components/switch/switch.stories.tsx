@@ -21,3 +21,21 @@ export const Basic = {
   render: Template,
 } as { args: SwitchProps; render: () => JSX.Element };
 
+
+export const Horizontal = {
+  args: {
+    label: "Is Active ?",
+    checked: true,
+    orientation: "horizontal",
+  },
+  render: Template,
+} as { args: SwitchProps; render: () => JSX.Element };
+
+export const Disabled = {
+  args: {
+    label: "Is Active ?",
+    checked: true,
+    disabled: true,
+  },
+  render: Template,
+} as { args: SwitchProps; render: () => JSX.Element };
