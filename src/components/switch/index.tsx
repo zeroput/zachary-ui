@@ -7,6 +7,8 @@ function Switch({
   onChange,
   disabled = false,
   orientation = "vertical",
+  loading = false,
+  size = "medium"
 }: SwitchProps) {
   return (
     <div
@@ -41,4 +43,6 @@ export interface SwitchProps {
   onChange: (checked: boolean) => void;
   disabled?: boolean;
   orientation?: "horizontal" | "vertical";
+  loading?: boolean;
+  size?: "small" | "medium" | "large";
 }

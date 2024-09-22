@@ -39,3 +39,12 @@ export const Disabled = {
   },
   render: Template,
 } as { args: SwitchProps; render: () => JSX.Element };
+
+export const Default = {
+  args: {
+    label: "Default Switch",
+    checked: false,
+    disabled: false,
+  },
+  render: Template
+} as { args: SwitchProps; render: () => JSX.Element }
