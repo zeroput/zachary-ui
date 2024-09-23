@@ -20,31 +20,28 @@ const Template = (args: RadioProps) => {
 
 const countryInfo = [
   {
-    label: "Singapore",
-    value: "singapore",
+    label: "Please confirm Mfg Line",
+    value: "mfg Line",
   },
   {
-    label: "India",
-    value: "india",
+    label: "Please confirm mfg Order",
+    value: "mfg Order",
   },
   {
-    label: "USA",
-    value: "usa",
+    label: "Please confirm Mfg Spec",
+    value: "mfg Spec",
   },
   {
-    label: "UK",
-    value: "uk",
-  },
-  {
-    label: "Canada",
-    value: "canada",
+    label: "Please confirm Mfg Type",
+    value: "mfg Type",
   },
 ];
 
 export const Basic = {
   args: {
     label: "Select country",
-    options: countryInfo
+    options: countryInfo,
+    orientation: "vertical"
   },
   render: Template,
 } as { args: RadioProps };

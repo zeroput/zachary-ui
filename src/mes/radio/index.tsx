@@ -4,12 +4,10 @@ import React from "react";
 function Radio({
   value = "",
   onChange = () => {},
-  options = [],
-  name = "",
+  options = [],  
   label = "",
   disabled = false,
   size = "medium",
-  rounded = "none",
   orientation = "horizontal",
 }: RadioProps) {
   return (
@@ -63,10 +61,8 @@ export interface RadioProps {
     label: string;
     value: string | number;
   }>;
-  name?: string;
   label?: string;
   disabled?: boolean;
   size?: "small" | "medium" | "large";
-  rounded?: "none" | "small" | "medium" | "large" | "full";
   orientation?: "horizontal" | "vertical";
 }
